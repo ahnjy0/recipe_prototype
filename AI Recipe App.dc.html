@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..700,0..1,0&display=block">
+<style>
+body{margin:0;font-family:'Pretendard Variable',Pretendard,system-ui,sans-serif;color:#1F1A17;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+button,input{font-family:inherit;color:inherit}
+input::placeholder{color:#ABA29B}
+*::-webkit-scrollbar{display:none}
+a{color:#EE5A24;text-decoration:none}
+a:hover{color:#C9471A}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.12);opacity:.75}}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#EFE9E3;display:flex;justify-content:center;align-items:center;gap:40px;padding:32px;flex-wrap:wrap">
+
+<sc-if value="{{ showIndex }}" hint-placeholder-val="{{ true }}">
+<div style="width:220px;display:flex;flex-direction:column;gap:6px">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+    <div style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="32" height="32" viewBox="0 0 48 48" fill="none" aria-label="5분 레시피 로고"><path d="M19 4c-2 2 2 4 0 6M27 3c-2 2 2 4 0 6" stroke="#F2A07F" stroke-width="2.2" stroke-linecap="round"></path><rect x="3.5" y="24" width="7" height="4.5" rx="2.25" fill="#C9471A"></rect><rect x="37.5" y="24" width="7" height="4.5" rx="2.25" fill="#C9471A"></rect><path d="M9 21h30v11a10 10 0 0 1-10 10H19A10 10 0 0 1 9 32V21z" fill="#EE5A24"></path><circle cx="24" cy="14" r="2.6" fill="#C9471A"></circle><rect x="8" y="16" width="32" height="6" rx="3" fill="#C9471A"></rect><circle cx="19" cy="29.5" r="1.8" fill="#1F1A17"></circle><circle cx="29" cy="29.5" r="1.8" fill="#1F1A17"></circle><ellipse cx="15.5" cy="33" rx="2.2" ry="1.3" fill="#FFB199"></ellipse><ellipse cx="32.5" cy="33" rx="2.2" ry="1.3" fill="#FFB199"></ellipse><path d="M21.5 32.5q2.5 2.6 5 0" stroke="#1F1A17" stroke-width="1.7" stroke-linecap="round"></path></svg></div>
+    <div style="font-size:16px;font-weight:800"><span style="color:#EE5A24">5분 레시피</span> 프로토타입</div>
+  </div>
+  <div style="font-size:13px;color:#8C837C;margin-bottom:10px;line-height:1.5">390 × 844 · 화면을 바로 이동하거나 폰 안에서 직접 탭해 보세요.</div>
+  <sc-for list="{{ indexItems }}" as="it" hint-placeholder-count="10">
+    <button onClick="{{ it.onClick }}" style="height:40px;border:none;border-radius:12px;padding:0 14px;text-align:left;font-size:14px;cursor:pointer;background:{{ it.bg }};color:{{ it.fg }};font-weight:{{ it.w }}">{{ it.label }}</button>
+  </sc-for>
+</div>
+</sc-if>
+
+<div style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:40px;background:#fff;box-shadow:0 30px 80px -20px rgba(60,40,25,.35),0 0 0 1px rgba(0,0,0,.04);display:flex;flex-direction:column;flex-shrink:0">
+  <div style="height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 26px 0 34px;font-size:15px;font-weight:600;background:#fff;position:relative;z-index:5">
+    <span>9:41</span>
+    <div style="display:flex;gap:4px;align-items:center"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">signal_cellular_alt</span><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">wifi</span><span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1">battery_full</span></div>
+  </div>
+  <div style="flex:1;position:relative;min-height:0">
+
+<!-- LOGIN -->
+<sc-if value="{{ isLogin }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="로그인" style="position:absolute;inset:0;display:flex;flex-direction:column;background:#fff">
+  <div style="flex:1;overflow-y:auto">
+    <div style="height:230px;position:relative;background:#F3EDE7">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=70" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0) 40%,#fff 100%)"></div>
+    </div>
+    <div style="padding:0 24px 32px;margin-top:-28px;position:relative;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;gap:8px">
+        <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="46" height="46" viewBox="0 0 48 48" fill="none" aria-label="5분 레시피 로고"><path d="M19 4c-2 2 2 4 0 6M27 3c-2 2 2 4 0 6" stroke="#F2A07F" stroke-width="2.2" stroke-linecap="round"></path><rect x="3.5" y="24" width="7" height="4.5" rx="2.25" fill="#C9471A"></rect><rect x="37.5" y="24" width="7" height="4.5" rx="2.25" fill="#C9471A"></rect><path d="M9 21h30v11a10 10 0 0 1-10 10H19A10 10 0 0 1 9 32V21z" fill="#EE5A24"></path><circle cx="24" cy="14" r="2.6" fill="#C9471A"></circle><rect x="8" y="16" width="32" height="6" rx="3" fill="#C9471A"></rect><circle cx="19" cy="29.5" r="1.8" fill="#1F1A17"></circle><circle cx="29" cy="29.5" r="1.8" fill="#1F1A17"></circle><ellipse cx="15.5" cy="33" rx="2.2" ry="1.3" fill="#FFB199"></ellipse><ellipse cx="32.5" cy="33" rx="2.2" ry="1.3" fill="#FFB199"></ellipse><path d="M21.5 32.5q2.5 2.6 5 0" stroke="#1F1A17" stroke-width="1.7" stroke-linecap="round"></path></svg></div>
+        <div style="font-size:24px;font-weight:800;letter-spacing:-0.5px;color:#EE5A24">5분 레시피</div>
+      </div>
+      <div style="font-size:24px;font-weight:700;line-height:1.35;margin-top:18px;letter-spacing:-0.4px">냉장고 속 재료로<br>오늘의 한 끼를 만들어요</div>
+      <div style="font-size:15px;color:#8C837C;margin-top:6px">AI가 내 재료에 꼭 맞는 레시피를 추천해 드려요.</div>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px">
+        <input value="{{ email }}" onChange="{{ onEmail }}" type="email" placeholder="이메일" style="height:52px;border-radius:14px;border:1.5px solid #F7F4F1;background:#F7F4F1;padding:0 16px;font-size:16px;outline:none;width:100%" style-focus="border-color:#EE5A24;background:#fff">
+        <div style="position:relative">
+          <input value="{{ pw }}" onChange="{{ onPw }}" type="{{ pwType }}" placeholder="비밀번호" style="height:52px;border-radius:14px;border:1.5px solid #F7F4F1;background:#F7F4F1;padding:0 52px 0 16px;font-size:16px;outline:none;width:100%" style-focus="border-color:#EE5A24;background:#fff">
+          <button onClick="{{ togglePw }}" aria-label="비밀번호 표시" style="position:absolute;right:4px;top:4px;width:44px;height:44px;border:none;background:none;cursor:pointer;color:#8C837C;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">{{ pwIcon }}</span></button>
+        </div>
+        <sc-if value="{{ loginErr }}" hint-placeholder-val="{{ false }}">
+          <div style="font-size:13px;color:#E5484D;display:flex;gap:4px;align-items:center"><span style="font-family:'Material Symbols Rounded';font-size:16px;line-height:1">error</span>{{ loginErr }}</div>
+        </sc-if>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+        <button onClick="{{ toggleKeep }}" style="height:44px;border:none;background:none;padding:0;display:flex;align-items:center;gap:8px;font-size:14px;color:#4A423D;cursor:pointer">
+          <span style="width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:{{ keepBg }};border:1.5px solid {{ keepBd }};color:#fff"><span style="font-family:'Material Symbols Rounded';font-size:16px;line-height:1;font-weight:700">check</span></span>
+          로그인 상태 유지
+        </button>
+        <button onClick="{{ findPw }}" style="height:44px;border:none;background:none;font-size:14px;color:#8C837C;cursor:pointer;padding:0">비밀번호 찾기</button>
+      </div>
+      <button onClick="{{ doLogin }}" style="height:56px;border:none;border-radius:16px;background:#EE5A24;color:#fff;font-size:17px;font-weight:700;cursor:pointer;margin-top:12px;box-shadow:0 10px 22px -10px rgba(238,90,36,.8)" style-active="transform:scale(0.98)">로그인</button>
+      <div style="display:flex;align-items:center;gap:12px;margin:24px 0 16px;color:#ABA29B;font-size:13px"><div style="flex:1;height:1px;background:#EEE8E3"></div>간편 로그인<div style="flex:1;height:1px;background:#EEE8E3"></div></div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <button onClick="{{ socialLogin }}" style="height:52px;border:none;border-radius:14px;background:#FEE500;color:#191600;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px"><span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;font-variation-settings:'FILL' 1">chat_bubble</span>카카오로 시작하기</button>
+        <button onClick="{{ socialLogin }}" style="height:52px;border:1.5px solid #E8E1DB;border-radius:14px;background:#fff;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px"><span style="font-size:18px;font-weight:800;color:#4285F4">G</span>Google로 시작하기</button>
+        <button onClick="{{ socialLogin }}" style="height:52px;border:none;border-radius:14px;background:#111;color:#fff;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px"><span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;font-variation-settings:'FILL' 1">nutrition</span>Apple로 시작하기</button>
+      </div>
+      <div style="display:flex;justify-content:center;gap:6px;margin-top:22px;font-size:14px;color:#8C837C">아직 회원이 아니신가요?<button onClick="{{ goSignup }}" style="border:none;background:none;padding:0;font-size:14px;font-weight:700;color:#EE5A24;cursor:pointer">회원가입</button></div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- SIGNUP -->
+<sc-if value="{{ isSignup }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="회원가입" style="position:absolute;inset:0;display:flex;flex-direction:column;background:#fff">
+  <div style="height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 8px;flex-shrink:0">
+    <button onClick="{{ back }}" style="width:44px;height:44px;border:none;background:none;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1">arrow_back_ios_new</span></button>
+    <div style="font-size:17px;font-weight:700">회원가입</div>
+    <div style="width:44px"></div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:8px 20px 28px;display:flex;flex-direction:column;gap:28px">
+    <div>
+      <div style="font-size:22px;font-weight:700;line-height:1.4;letter-spacing:-0.4px">반가워요!<br>몇 가지만 알려주세요</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:14px;font-weight:600;color:#4A423D">닉네임</div>
+        <input value="{{ nick }}" onChange="{{ onNick }}" placeholder="2~10자로 입력해 주세요" style="height:52px;border-radius:14px;border:1.5px solid #F7F4F1;background:#F7F4F1;padding:0 16px;font-size:16px;outline:none;width:100%" style-focus="border-color:#EE5A24;background:#fff">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:14px;font-weight:600;color:#4A423D">이메일</div>
+        <input value="{{ suEmail }}" onChange="{{ onSuEmail }}" type="email" placeholder="example@email.com" style="height:52px;border-radius:14px;border:1.5px solid #F7F4F1;background:#F7F4F1;padding:0 16px;font-size:16px;outline:none;width:100%" style-focus="border-color:#EE5A24;background:#fff">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:14px;font-weight:600;color:#4A423D">비밀번호</div>
+        <input value="{{ suPw }}" onChange="{{ onSuPw }}" type="password" placeholder="비밀번호" style="height:52px;border-radius:14px;border:1.5px solid #F7F4F1;background:#F7F4F1;padding:0 16px;font-size:16px;outline:none;width:100%" style-focus="border-color:#EE5A24;background:#fff">
+        <div style="font-size:13px;display:flex;align-items:center;gap:4px;color:{{ pwHintColor }}"><span style="font-family:'Material Symbols Rounded';font-size:16px;line-height:1">check_circle</span>8자 이상, 영문과 숫자 포함</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:14px;font-weight:600;color:#4A423D">비밀번호 확인</div>
+        <input value="{{ suPw2 }}" onChange="{{ onSuPw2 }}" type="password" placeholder="비밀번호를 한 번 더 입력해 주세요" style="height:52px;border-radius:14px;border:1.5px solid #F7F4F1;background:#F7F4F1;padding:0 16px;font-size:16px;outline:none;width:100%" style-focus="border-color:#EE5A24;background:#fff">
+        <sc-if value="{{ pw2Msg }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;color:{{ pw2Color }}">{{ pw2Msg }}</div></sc-if>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div><div style="font-size:16px;font-weight:700">선호하는 요리</div><div style="font-size:13px;color:#8C837C;margin-top:2px">여러 개 선택할 수 있어요</div></div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ suCuisineChips }}" as="c" hint-placeholder-count="6">
+          <button onClick="{{ c.onClick }}" style="height:40px;padding:0 16px;border-radius:999px;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:4px;background:{{ c.bg }};border:1.5px solid {{ c.bd }};color:{{ c.fg }};font-weight:{{ c.w }}">{{ c.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:16px;font-weight:700">나의 요리 수준</div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+        <sc-for list="{{ levelCards }}" as="l" hint-placeholder-count="3">
+          <button onClick="{{ l.onClick }}" style="padding:14px 8px;border-radius:16px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;background:{{ l.bg }};border:{{ l.bw }} solid {{ l.bd }}">
+            <span style="font-family:'Material Symbols Rounded';font-size:28px;line-height:1;color:{{ l.ic }}">{{ l.icon }}</span>
+            <span style="font-size:15px;font-weight:700">{{ l.label }}</span>
+            <span style="font-size:12px;color:#8C837C">{{ l.desc }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="border:1.5px solid #EEE8E3;border-radius:18px;padding:6px 14px">
+      <button onClick="{{ toggleAll }}" style="width:100%;height:52px;border:none;background:none;padding:0;display:flex;align-items:center;gap:10px;cursor:pointer;font-size:16px;font-weight:700;border-bottom:1px solid #EEE8E3">
+        <span style="width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:{{ allBg }};border:1.5px solid {{ allBd }}"><span style="font-family:'Material Symbols Rounded';font-size:16px;line-height:1;font-weight:700">check</span></span>
+        약관 전체 동의
+      </button>
+      <sc-for list="{{ terms }}" as="t" hint-placeholder-count="3">
+        <div style="display:flex;align-items:center;height:46px">
+          <button onClick="{{ t.onClick }}" style="flex:1;height:44px;border:none;background:none;padding:0;display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:#4A423D;text-align:left">
+            <span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:{{ t.color }}">check</span>
+            <span style="color:{{ t.tagColor }};font-weight:600">{{ t.tag }}</span>{{ t.label }}
+          </button>
+          <button onClick="{{ showTerms }}" style="width:36px;height:44px;border:none;background:none;cursor:pointer;color:#ABA29B"><span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1">chevron_right</span></button>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="padding:12px 20px 24px;border-top:1px solid #F1ECE7;flex-shrink:0;background:#fff">
+    <button onClick="{{ doSignup }}" style="width:100%;height:56px;border:none;border-radius:16px;font-size:17px;font-weight:700;cursor:pointer;background:{{ suBtnBg }};color:{{ suBtnFg }}">가입 완료</button>
+  </div>
+</div>
+</sc-if>
+
+<!-- SIGNUP DONE -->
+<sc-if value="{{ isSignupDone }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="가입 완료" style="position:absolute;inset:0;display:flex;flex-direction:column;background:#fff;padding:24px 24px 24px">
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+    <div style="width:88px;height:88px;border-radius:50%;background:#E8F6EF;display:flex;align-items:center;justify-content:center;color:#22A06B"><span style="font-family:'Material Symbols Rounded';font-size:52px;line-height:1;font-variation-settings:'FILL' 1">check_circle</span></div>
+    <div style="font-size:24px;font-weight:700;margin-top:24px;letter-spacing:-0.4px;line-height:1.4">가입을 환영해요,<br>{{ displayNick }}님!</div>
+    <div style="font-size:15px;color:#8C837C;margin-top:8px;line-height:1.5">이제 가진 재료만 알려주시면<br>AI가 딱 맞는 레시피를 만들어 드려요.</div>
+    <div style="width:100%;height:180px;border-radius:24px;overflow:hidden;margin-top:28px;background:#F3EDE7">
+      <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=70" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+    </div>
+  </div>
+  <button onClick="{{ startFirst }}" style="height:56px;border:none;border-radius:16px;background:#EE5A24;color:#fff;font-size:17px;font-weight:700;cursor:pointer;box-shadow:0 10px 22px -10px rgba(238,90,36,.8)">✨ 첫 AI 레시피 만들기</button>
+  <button onClick="{{ goHome }}" style="height:48px;border:none;background:none;color:#8C837C;font-size:15px;cursor:pointer;margin-top:4px">홈으로 가기</button>
+</div>
+</sc-if>
+
+<!-- HOME -->
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<div data-screen-label="홈" style="position:absolute;inset:0;display:flex;flex-direction:column;background:#fff">
+  <div style="height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 12px 0 20px;flex-shrink:0">
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="width:37px;height:37px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="37" height="37" viewBox="0 0 48 48" fill="none" aria-label="5분 레시피 로고"><path d="M19 4c-2 2 2 4 0 6M27 3c-2 2 2 4 0 6" stroke="#F2A07F" stroke-width="2.2" stroke-linecap="round"></path><rect x="3.5" y="24" width="7" height="4.5" rx="2.25" fill="#C9471A"></rect><rect x="37.5" y="24" width="7" height="4.5" rx="2.25" fill="#C9471A"></rect><path d="M9 21h30v11a10 10 0 0 1-10 10H19A10 10 0 0 1 9 32V21z" fill="#EE5A24"></path><circle cx="24" cy="14" r="2.6" fill="#C9471A"></circle><rect x="8" y="16" width="32" height="6" rx="3" fill="#C9471A"></rect><circle cx="19" cy="29.5" r="1.8" fill="#1F1A17"></circle><circle cx="29" cy="29.5" r="1.8" fill="#1F1A17"></circle><ellipse cx="15.5" cy="33" rx="2.2" ry="1.3" fill="#FFB199"></ellipse><ellipse cx="32.5" cy="33" rx="2.2" ry="1.3" fill="#FFB199"></ellipse><path d="M21.5 32.5q2.5 2.6 5 0" stroke="#1F1A17" stroke-width="1.7" stroke-linecap="round"></path></svg></div>
+      <div style="font-size:20px;font-weight:800;letter-spacing:-0.4px;color:#EE5A24">5분 레시피</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:2px">
+      <button onClick="{{ notifTap }}" aria-label="알림" style="width:44px;height:44px;border:none;background:none;cursor:pointer;position:relative;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:26px;line-height:1">notifications</span><span style="position:absolute;top:10px;right:11px;width:8px;height:8px;border-radius:50%;background:#EE5A24;border:2px solid #fff"></span></button>
+      <button onClick="{{ goMypage }}" aria-label="프로필" style="width:44px;height:44px;border:none;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center"><span style="width:34px;height:34px;border-radius:50%;background:#FFE3D6;color:#C9471A;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ nickInitial }}</span></button>
+    </div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding-bottom:28px">
+    <div style="padding:8px 20px 0">
+      <div style="font-size:15px;color:#8C837C">{{ displayNick }}님, 안녕하세요</div>
+      <div style="font-size:24px;font-weight:700;letter-spacing:-0.5px;margin-top:4px;line-height:1.35">오늘은 어떤 요리를<br>만들어볼까요?</div>
+    </div>
+    <div style="margin:18px 20px 0;border-radius:24px;overflow:hidden;background:#FFF7F2;border:1px solid #F7E7DD">
+      <div style="height:196px;position:relative;background:#F3EDE7">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=75" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(20,12,6,.72) 100%)"></div>
+        <div style="position:absolute;top:14px;left:14px;height:28px;padding:0 10px;border-radius:999px;background:rgba(255,255,255,.95);font-size:12px;font-weight:700;color:#C9471A;display:flex;align-items:center;gap:4px"><span style="font-family:'Material Symbols Rounded';font-size:15px;line-height:1">auto_awesome</span>AI 맞춤 레시피</div>
+        <div style="position:absolute;left:18px;right:18px;bottom:16px;color:#fff">
+          <div style="font-size:20px;font-weight:700;line-height:1.35;letter-spacing:-0.3px">가진 재료만 알려주세요<br>30초면 레시피 완성!</div>
+        </div>
+      </div>
+      <div style="padding:14px">
+        <button onClick="{{ goCreate }}" style="width:100%;height:56px;border:none;border-radius:16px;background:#EE5A24;color:#fff;font-size:17px;font-weight:700;cursor:pointer;box-shadow:0 10px 22px -10px rgba(238,90,36,.8)" style-active="transform:scale(0.98)">✨ AI 레시피 만들기</button>
+      </div>
+    </div>
+
+    <div style="margin:28px 20px 0">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <div style="font-size:18px;font-weight:700">냉장고 속 재료 빠르게 입력</div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:12px">
+        <div style="flex:1;position:relative">
+          <span style="position:absolute;left:14px;top:14px;font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:#ABA29B">search</span>
+          <input value="{{ quick }}" onChange="{{ onQuick }}" onKeyDown="{{ onQuickKey }}" placeholder="재료 이름 입력 (예: 감자)" style="height:50px;border-radius:14px;border:1.5px solid #F7F4F1;background:#F7F4F1;padding:0 14px 0 42px;font-size:15px;outline:none;width:100%" style-focus="border-color:#EE5A24;background:#fff">
+        </div>
+        <button onClick="{{ addQuick }}" aria-label="재료 추가" style="width:50px;height:50px;border:none;border-radius:14px;background:#1F1A17;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1">add</span></button>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+        <sc-for list="{{ quickChips }}" as="c" hint-placeholder-count="8">
+          <button onClick="{{ c.onClick }}" style="height:38px;padding:0 14px;border-radius:999px;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:4px;background:{{ c.bg }};border:1.5px solid {{ c.bd }};color:{{ c.fg }};font-weight:{{ c.w }}">
+            <sc-if value="{{ c.on }}" hint-placeholder-val="{{ false }}"><span style="font-family:'Material Symbols Rounded';font-size:16px;line-height:1;font-weight:700">check</span></sc-if>{{ c.label }}
+          </button>
+        </sc-for>
+      </div>
+      <button onClick="{{ quickGo }}" style="width:100%;height:50px;margin-top:14px;border-radius:14px;border:1.5px solid #EE5A24;background:#fff;color:#C9471A;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px">선택한 재료 {{ quickCount }}개로 만들기<span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1">arrow_forward</span></button>
+    </div>
+
+    <div style="margin-top:32px">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:0 20px">
+        <div style="font-size:18px;font-weight:700">요즘 인기 레시피</div>
+        <button onClick="{{ seeAll }}" style="border:none;background:none;font-size:14px;color:#8C837C;cursor:pointer;height:36px">전체보기</button>
+      </div>
+      <div style="display:flex;gap:12px;overflow-x:auto;padding:10px 20px 4px;scroll-snap-type:x mandatory">
+        <sc-for list="{{ popular }}" as="p" hint-placeholder-count="3">
+          <button onClick="{{ p.onClick }}" style="flex:0 0 158px;border:none;background:none;padding:0;text-align:left;cursor:pointer;scroll-snap-align:start">
+            <div style="width:158px;height:170px;border-radius:20px;overflow:hidden;background:#F3EDE7;position:relative">
+              <img src="{{ p.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+              <div style="position:absolute;top:10px;left:10px;height:24px;padding:0 8px;border-radius:999px;background:rgba(255,255,255,.95);font-size:11px;font-weight:700;display:flex;align-items:center;gap:3px;color:#1F1A17"><span style="font-family:'Material Symbols Rounded';font-size:13px;line-height:1;color:#EE5A24;font-variation-settings:'FILL' 1">favorite</span>{{ p.likes }}</div>
+            </div>
+            <div style="font-size:15px;font-weight:700;margin-top:10px;line-height:1.35">{{ p.name }}</div>
+            <div style="font-size:13px;color:#8C837C;margin-top:4px">{{ p.diff }} · {{ p.time }}</div>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="margin:28px 20px 0">
+      <div style="font-size:18px;font-weight:700">최근 생성한 레시피</div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px">
+        <sc-for list="{{ recentList }}" as="r" hint-placeholder-count="2">
+          <button onClick="{{ r.onClick }}" style="display:flex;gap:14px;align-items:center;padding:10px;border-radius:20px;border:1px solid #EEE8E3;background:#fff;text-align:left;cursor:pointer;width:100%">
+            <div style="width:72px;height:72px;border-radius:14px;overflow:hidden;background:#F3EDE7;flex-shrink:0"><img src="{{ r.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:12px;color:#C9471A;font-weight:600;display:flex;align-items:center;gap:3px"><span style="font-family:'Material Symbols Rounded';font-size:14px;line-height:1">auto_awesome</span>{{ r.when }}</div>
+              <div style="font-size:15px;font-weight:700;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.name }}</div>
+              <div style="font-size:13px;color:#8C837C;margin-top:3px">{{ r.diff }} · {{ r.time }} · {{ r.cuisine }}</div>
+            </div>
+            <span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:#C9C0B9">chevron_right</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+  <div style="height:76px;flex-shrink:0;border-top:1px solid #F1ECE7;background:#fff;display:grid;grid-template-columns:repeat(4,1fr);padding-bottom:12px">
+    <sc-for list="{{ nav }}" as="n" hint-placeholder-count="4">
+      <button onClick="{{ n.onClick }}" style="border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ n.color }}">
+        <span style="font-family:'Material Symbols Rounded';font-size:26px;line-height:1;font-variation-settings:'FILL' {{ n.fill }}">{{ n.icon }}</span>
+        <span style="font-size:11px;font-weight:{{ n.w }}">{{ n.label }}</span>
+      </button>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<!-- CREATE -->
+<sc-if value="{{ isCreate }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="레시피 생성" style="position:absolute;inset:0;display:flex;flex-direction:column;background:#fff">
+  <div style="height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 8px;flex-shrink:0">
+    <button onClick="{{ back }}" style="width:44px;height:44px;border:none;background:none;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1">arrow_back_ios_new</span></button>
+    <div style="font-size:17px;font-weight:700">AI 레시피 만들기</div>
+    <button onClick="{{ resetCreate }}" style="min-width:44px;height:44px;padding:0 8px;white-space:nowrap;border:none;background:none;font-size:14px;color:#8C837C;cursor:pointer">초기화</button>
+  </div>
+  <div style="padding:4px 20px 14px;flex-shrink:0;border-bottom:1px solid #F1ECE7">
+    <div style="display:flex;gap:6px">
+      <sc-for list="{{ progSegs }}" as="g" hint-placeholder-count="4">
+        <div style="flex:1;display:flex;flex-direction:column;gap:6px">
+          <div style="height:4px;border-radius:2px;background:{{ g.bar }}"></div>
+          <div style="font-size:12px;font-weight:{{ g.w }};color:{{ g.fg }}">{{ g.label }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:22px 20px 32px;display:flex;flex-direction:column;gap:32px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <div style="font-size:18px;font-weight:700"><span style="color:#EE5A24">1</span> 어떤 재료가 있나요?</div>
+        <div style="font-size:13px;color:#8C837C">{{ ingCount }}개 입력됨</div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <input value="{{ ingInput }}" onChange="{{ onIng }}" onKeyDown="{{ onIngKey }}" placeholder="재료를 입력하고 추가를 눌러주세요" style="flex:1;min-width:0;height:52px;border-radius:14px;border:1.5px solid #F7F4F1;background:#F7F4F1;padding:0 16px;font-size:15px;outline:none" style-focus="border-color:#EE5A24;background:#fff">
+        <button onClick="{{ addIng }}" style="height:52px;padding:0 18px;border:none;border-radius:14px;background:#1F1A17;color:#fff;font-size:15px;font-weight:600;cursor:pointer">추가</button>
+      </div>
+      <sc-if value="{{ hasIngs }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ ingChips }}" as="c" hint-placeholder-count="3">
+            <div style="height:38px;padding:0 6px 0 14px;border-radius:999px;background:#FFF1EB;border:1.5px solid #EE5A24;color:#C9471A;font-size:14px;font-weight:600;display:flex;align-items:center;gap:2px">{{ c.name }}<button onClick="{{ c.onRemove }}" aria-label="삭제" style="width:28px;height:28px;border:none;background:none;cursor:pointer;color:#C9471A;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">close</span></button></div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ noIngs }}" hint-placeholder-val="{{ false }}">
+        <div style="font-size:13px;color:#E5484D">재료를 1개 이상 입력해 주세요.</div>
+      </sc-if>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+        <span style="font-size:13px;color:#8C837C;margin-right:2px">추천</span>
+        <sc-for list="{{ ingSuggest }}" as="c" hint-placeholder-count="5">
+          <button onClick="{{ c.onAdd }}" style="height:32px;padding:0 10px;border-radius:999px;border:1px dashed #D9CFC6;background:#fff;font-size:13px;color:#4A423D;cursor:pointer;display:flex;align-items:center;gap:2px"><span style="font-family:'Material Symbols Rounded';font-size:15px;line-height:1">add</span>{{ c.name }}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-size:18px;font-weight:700"><span style="color:#EE5A24">2</span> 몇 인분인가요?</div>
+        <div style="font-size:13px;color:#8C837C;margin-top:4px">재료 양을 자동으로 맞춰드려요</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;background:#F7F4F1;border-radius:16px;padding:4px">
+        <button onClick="{{ decServ }}" aria-label="감소" style="width:44px;height:44px;border:none;border-radius:12px;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;color:{{ decColor }}"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">remove</span></button>
+        <div style="min-width:56px;text-align:center;font-size:17px;font-weight:700">{{ servings }}인분</div>
+        <button onClick="{{ incServ }}" aria-label="증가" style="width:44px;height:44px;border:none;border-radius:12px;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;color:{{ incColor }}"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">add</span></button>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:18px;font-weight:700"><span style="color:#EE5A24">3</span> 난이도를 골라주세요</div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+        <sc-for list="{{ diffCards }}" as="d" hint-placeholder-count="3">
+          <button onClick="{{ d.onClick }}" style="position:relative;padding:16px 8px 14px;border-radius:18px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;background:{{ d.bg }};border:2px solid {{ d.bd }}">
+            <sc-if value="{{ d.on }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:8px;right:8px;width:20px;height:20px;border-radius:50%;background:#EE5A24;color:#fff;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:14px;line-height:1;font-weight:700">check</span></span></sc-if>
+            <div style="display:flex;gap:2px">
+              <sc-for list="{{ d.dots }}" as="o" hint-placeholder-count="3"><span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;font-variation-settings:'FILL' 1;color:{{ o.c }}">local_fire_department</span></sc-for>
+            </div>
+            <span style="font-size:16px;font-weight:700">{{ d.label }}</span>
+            <span style="font-size:12px;color:#8C837C;line-height:1.4;text-align:center">{{ d.desc }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:18px;font-weight:700"><span style="color:#EE5A24">4</span> 조리시간</div>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;background:#F7F4F1;border-radius:16px;padding:4px">
+        <sc-for list="{{ timeOpts }}" as="t" hint-placeholder-count="4">
+          <button onClick="{{ t.onClick }}" style="height:44px;border:none;border-radius:12px;font-size:14px;cursor:pointer;background:{{ t.bg }};color:{{ t.fg }};font-weight:{{ t.w }};box-shadow:{{ t.sh }}">{{ t.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:18px;font-weight:700"><span style="color:#EE5A24">5</span> 음식 종류</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ cuisineOpts }}" as="c" hint-placeholder-count="7">
+          <button onClick="{{ c.onClick }}" style="height:40px;padding:0 16px;border-radius:999px;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:4px;background:{{ c.bg }};border:1.5px solid {{ c.bd }};color:{{ c.fg }};font-weight:{{ c.w }}">{{ c.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div>
+        <div style="font-size:18px;font-weight:700"><span style="color:#EE5A24">6</span> 빼고 싶은 재료 <span style="font-size:14px;font-weight:500;color:#8C837C">(선택)</span></div>
+        <div style="font-size:13px;color:#8C837C;margin-top:4px">알레르기나 싫어하는 재료를 알려주세요</div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <input value="{{ exInput }}" onChange="{{ onEx }}" onKeyDown="{{ onExKey }}" placeholder="예: 오이, 고수" style="flex:1;min-width:0;height:52px;border-radius:14px;border:1.5px solid #F7F4F1;background:#F7F4F1;padding:0 16px;font-size:15px;outline:none" style-focus="border-color:#EE5A24;background:#fff">
+        <button onClick="{{ addEx }}" style="height:52px;padding:0 18px;border:1.5px solid #E8E1DB;border-radius:14px;background:#fff;font-size:15px;font-weight:600;cursor:pointer">추가</button>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ exChips }}" as="c" hint-placeholder-count="1">
+          <div style="height:36px;padding:0 6px 0 12px;border-radius:999px;background:#F1ECE7;color:#4A423D;font-size:14px;display:flex;align-items:center;gap:2px"><span style="font-family:'Material Symbols Rounded';font-size:16px;line-height:1;color:#8C837C;margin-right:2px">block</span>{{ c.name }}<button onClick="{{ c.onRemove }}" aria-label="삭제" style="width:28px;height:28px;border:none;background:none;cursor:pointer;color:#8C837C;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">close</span></button></div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+  <div style="padding:12px 20px 24px;border-top:1px solid #F1ECE7;flex-shrink:0;background:#fff">
+    <div style="font-size:13px;color:#8C837C;text-align:center;margin-bottom:10px">{{ createSummary }}</div>
+    <button onClick="{{ doGenerate }}" style="width:100%;height:56px;border:none;border-radius:16px;font-size:17px;font-weight:700;cursor:pointer;background:{{ genBg }};color:{{ genFg }};box-shadow:{{ genSh }}" style-active="transform:scale(0.98)">✨ AI 레시피 생성하기</button>
+  </div>
+</div>
+</sc-if>
+
+<!-- LOADING -->
+<sc-if value="{{ isLoading }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="AI 생성 중" style="position:absolute;inset:0;display:flex;flex-direction:column;background:#fff;padding:0 28px 32px">
+  <div style="height:56px;display:flex;align-items:center;justify-content:flex-end">
+    <button onClick="{{ cancelGen }}" style="height:44px;padding:0 8px;border:none;background:none;font-size:15px;color:#8C837C;cursor:pointer">취소</button>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center">
+    {{ spinner }}
+    <div style="font-size:22px;font-weight:700;margin-top:32px;text-align:center;line-height:1.4;letter-spacing:-0.3px">AI가 맞춤 레시피를<br>만들고 있어요</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:14px">
+      <sc-for list="{{ loadIngs }}" as="c" hint-placeholder-count="3"><span style="height:30px;padding:0 12px;border-radius:999px;background:#FFF1EB;color:#C9471A;font-size:13px;font-weight:600;display:flex;align-items:center">{{ c }}</span></sc-for>
+    </div>
+    <div style="width:100%;margin-top:36px;display:flex;flex-direction:column;gap:14px;background:#FAF7F4;border-radius:20px;padding:20px">
+      <sc-for list="{{ stages }}" as="g" hint-placeholder-count="4">
+        <div style="display:flex;align-items:center;gap:10px;font-size:15px;color:{{ g.fg }};font-weight:{{ g.w }}">
+          <span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-variation-settings:'FILL' {{ g.fill }};color:{{ g.ic }}">{{ g.icon }}</span>{{ g.label }}
+        </div>
+      </sc-for>
+      <div style="height:6px;border-radius:3px;background:#EEE8E3;overflow:hidden;margin-top:4px"><div style="height:100%;border-radius:3px;background:#EE5A24;transition:width .6s ease;width:{{ genPct }}"></div></div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- DETAIL -->
+<sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="레시피 상세" style="position:absolute;inset:0;display:flex;flex-direction:column;background:#fff">
+  <div style="position:absolute;top:10px;left:12px;right:12px;display:flex;justify-content:space-between;z-index:3;pointer-events:none">
+    <button onClick="{{ back }}" aria-label="뒤로가기" style="pointer-events:auto;width:44px;height:44px;border:none;border-radius:50%;background:rgba(255,255,255,.95);box-shadow:0 2px 10px rgba(0,0,0,.12);cursor:pointer;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">arrow_back_ios_new</span></button>
+    <div style="display:flex;gap:8px;pointer-events:auto">
+      <button onClick="{{ toggleSave }}" aria-label="저장" style="width:44px;height:44px;border:none;border-radius:50%;background:rgba(255,255,255,.95);box-shadow:0 2px 10px rgba(0,0,0,.12);cursor:pointer;display:flex;align-items:center;justify-content:center;color:{{ bmColor }}"><span style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;font-variation-settings:'FILL' {{ bmFill }}">bookmark</span></button>
+      <button onClick="{{ share }}" aria-label="공유" style="width:44px;height:44px;border:none;border-radius:50%;background:rgba(255,255,255,.95);box-shadow:0 2px 10px rgba(0,0,0,.12);cursor:pointer;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">ios_share</span></button>
+    </div>
+  </div>
+  <div style="flex:1;overflow-y:auto">
+    <div style="height:320px;background:#F3EDE7"><img src="{{ d.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div style="margin-top:-28px;position:relative;background:#fff;border-radius:28px 28px 0 0;padding:24px 20px 28px">
+      <sc-if value="{{ d.ai }}" hint-placeholder-val="{{ true }}">
+        <div style="display:inline-flex;height:28px;padding:0 10px;border-radius:999px;background:#FFF1EB;color:#C9471A;font-size:12px;font-weight:700;align-items:center;gap:4px"><span style="font-family:'Material Symbols Rounded';font-size:15px;line-height:1">auto_awesome</span>AI 맞춤 레시피</div>
+      </sc-if>
+      <div style="font-size:26px;font-weight:700;letter-spacing:-0.5px;margin-top:10px;line-height:1.3">{{ d.name }}</div>
+      <div style="font-size:15px;color:#6B625C;line-height:1.6;margin-top:8px;text-wrap:pretty">{{ d.desc }}</div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:20px;border:1px solid #EEE8E3;border-radius:18px;padding:14px 0">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;color:#EE5A24">local_fire_department</span><span style="font-size:12px;color:#8C837C">난이도</span><span style="font-size:15px;font-weight:700">{{ d.diff }}</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;border-left:1px solid #EEE8E3;border-right:1px solid #EEE8E3"><span style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;color:#EE5A24">schedule</span><span style="font-size:12px;color:#8C837C">조리시간</span><span style="font-size:15px;font-weight:700">{{ d.time }}</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;color:#EE5A24">group</span><span style="font-size:12px;color:#8C837C">인분</span><span style="font-size:15px;font-weight:700">{{ d.servings }}인분</span></div>
+      </div>
+      <sc-if value="{{ d.ai }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;gap:10px;margin-top:12px;padding:14px;border-radius:16px;background:#F7F4F1">
+          <span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:#8C837C">info</span>
+          <div style="font-size:13px;color:#6B625C;line-height:1.55">입력하신 재료 <b style="color:#1F1A17">{{ d.ingSummary }}</b>(으)로 AI가 생성한 레시피예요. 알레르기와 취향에 따라 양을 조절해 주세요.</div>
+        </div>
+      </sc-if>
+
+      <div style="margin-top:32px;display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div style="font-size:19px;font-weight:700">재료</div>
+          <div style="font-size:13px;color:#8C837C;margin-top:2px">{{ d.checkedText }}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:2px;background:#F7F4F1;border-radius:12px;padding:3px">
+          <button onClick="{{ dDec }}" aria-label="감소" style="width:36px;height:36px;border:none;border-radius:9px;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">remove</span></button>
+          <div style="min-width:52px;text-align:center;font-size:14px;font-weight:700">{{ d.servings }}인분</div>
+          <button onClick="{{ dInc }}" aria-label="증가" style="width:36px;height:36px;border:none;border-radius:9px;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">add</span></button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;margin-top:10px">
+        <sc-for list="{{ ingrRows }}" as="i" hint-placeholder-count="6">
+          <button onClick="{{ i.onToggle }}" style="display:flex;align-items:center;gap:12px;min-height:52px;border:none;border-bottom:1px solid #F3EEE9;background:none;padding:0 2px;cursor:pointer;text-align:left;width:100%">
+            <span style="width:24px;height:24px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;background:{{ i.boxBg }};border:1.5px solid {{ i.boxBd }}"><span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1;font-weight:700">check</span></span>
+            <span style="flex:1;font-size:15px;display:flex;align-items:center;gap:6px;color:{{ i.fg }};text-decoration:{{ i.deco }}">{{ i.name }}<sc-if value="{{ i.owned }}" hint-placeholder-val="{{ false }}"><span style="height:20px;padding:0 6px;border-radius:6px;background:#E8F6EF;color:#16804F;font-size:11px;font-weight:700;display:flex;align-items:center">보유</span></sc-if></span>
+            <span style="font-size:15px;font-weight:600;color:{{ i.fg }}">{{ i.amt }}</span>
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="font-size:19px;font-weight:700;margin-top:36px">조리 과정</div>
+      <div style="display:flex;flex-direction:column;gap:28px;margin-top:16px">
+        <sc-for list="{{ stepRows }}" as="st" hint-placeholder-count="3">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="display:flex;align-items:center;gap:10px">
+                <span style="height:26px;padding:0 10px;border-radius:8px;background:#1F1A17;color:#fff;font-size:12px;font-weight:800;letter-spacing:0.5px;display:flex;align-items:center">{{ st.no }}</span>
+                <span style="font-size:16px;font-weight:700">{{ st.title }}</span>
+              </div>
+              <span style="font-size:13px;color:#8C837C;display:flex;align-items:center;gap:3px"><span style="font-family:'Material Symbols Rounded';font-size:16px;line-height:1">timer</span>{{ st.min }}분</span>
+            </div>
+            <div style="height:190px;border-radius:18px;overflow:hidden;background:#F3EDE7"><img src="{{ st.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="font-size:15px;line-height:1.65;color:#3A332E;text-wrap:pretty">{{ st.desc }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="margin-top:32px;padding:18px;border-radius:20px;background:#FFF6EC;border:1px solid #FBE3C8">
+        <div style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:700;color:#A8470F"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-variation-settings:'FILL' 1;color:#F2A33A">lightbulb</span>AI Cooking Tip</div>
+        <div style="font-size:15px;line-height:1.65;color:#4A3B30;margin-top:8px;text-wrap:pretty">{{ d.tip }}</div>
+      </div>
+
+      <div style="margin-top:20px;padding:18px;border-radius:20px;border:1.5px dashed #E1D7CE;display:flex;align-items:center;gap:12px">
+        <div style="flex:1">
+          <div style="font-size:15px;font-weight:700">마음에 들지 않나요?</div>
+          <div style="font-size:13px;color:#8C837C;margin-top:2px">같은 조건으로 다른 레시피를 받아보세요</div>
+        </div>
+        <button onClick="{{ regen }}" style="height:44px;padding:0 14px;border-radius:12px;border:1.5px solid #E8E1DB;background:#fff;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:4px"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">refresh</span>다시 생성</button>
+      </div>
+    </div>
+  </div>
+  <div style="padding:12px 20px 24px;border-top:1px solid #F1ECE7;flex-shrink:0;background:#fff">
+    <sc-if value="{{ notSaved }}" hint-placeholder-val="{{ true }}">
+      <button onClick="{{ doSave }}" style="width:100%;height:56px;border:none;border-radius:16px;background:#EE5A24;color:#fff;font-size:17px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 10px 22px -10px rgba(238,90,36,.8)" style-active="transform:scale(0.98)"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">bookmark_add</span>나의 레시피에 저장</button>
+    </sc-if>
+    <sc-if value="{{ isSaved }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ goMyRecipes }}" style="width:100%;height:56px;border:1.5px solid #22A06B;border-radius:16px;background:#E8F6EF;color:#16804F;font-size:17px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-variation-settings:'FILL' 1">check_circle</span>저장 완료 · 나의 레시피 보기</button>
+    </sc-if>
+  </div>
+</div>
+</sc-if>
+
+<!-- MY RECIPES -->
+<sc-if value="{{ isMy }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="나의 레시피" style="position:absolute;inset:0;display:flex;flex-direction:column;background:#fff">
+  <div style="padding:8px 20px 0;flex-shrink:0">
+    <div style="display:flex;justify-content:space-between;align-items:center;height:44px">
+      <div style="font-size:24px;font-weight:700;letter-spacing:-0.4px">나의 레시피</div>
+      <div style="font-size:14px;color:#8C837C">{{ savedCount }}개</div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:10px">
+      <div style="flex:1;position:relative">
+        <span style="position:absolute;left:14px;top:13px;font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:#ABA29B">search</span>
+        <input value="{{ query }}" onChange="{{ onQuery }}" placeholder="저장한 레시피 검색" style="height:48px;border-radius:14px;border:1.5px solid #F7F4F1;background:#F7F4F1;padding:0 14px 0 42px;font-size:15px;outline:none;width:100%" style-focus="border-color:#EE5A24;background:#fff">
+      </div>
+      <div style="position:relative">
+        <button onClick="{{ toggleSort }}" style="height:48px;padding:0 12px;border-radius:14px;border:1.5px solid #E8E1DB;background:#fff;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px;white-space:nowrap"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">swap_vert</span>{{ sort }}</button>
+        <sc-if value="{{ sortOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;right:0;top:54px;z-index:6;background:#fff;border-radius:16px;box-shadow:0 12px 32px -8px rgba(40,25,15,.25);padding:6px;width:150px;border:1px solid #F1ECE7">
+            <sc-for list="{{ sortOpts }}" as="o" hint-placeholder-count="3">
+              <button onClick="{{ o.onClick }}" style="width:100%;height:44px;border:none;border-radius:10px;background:{{ o.bg }};font-size:14px;text-align:left;padding:0 12px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:{{ o.fg }};font-weight:{{ o.w }}">{{ o.label }}<sc-if value="{{ o.on }}" hint-placeholder-val="{{ false }}"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">check</span></sc-if></button>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;overflow-x:auto;padding:14px 0 12px;margin:0 -20px;padding-left:20px;padding-right:20px">
+      <sc-for list="{{ filterChips }}" as="c" hint-placeholder-count="5">
+        <button onClick="{{ c.onClick }}" style="height:38px;padding:0 14px;border-radius:999px;font-size:14px;cursor:pointer;white-space:nowrap;flex-shrink:0;background:{{ c.bg }};border:1.5px solid {{ c.bd }};color:{{ c.fg }};font-weight:{{ c.w }}">{{ c.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:4px 20px 24px">
+    <sc-if value="{{ hasList }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <sc-for list="{{ myList }}" as="m" hint-placeholder-count="4">
+          <div style="display:flex;gap:14px;align-items:center;padding:10px;border-radius:20px;border:1px solid #EEE8E3;background:#fff">
+            <button onClick="{{ m.onOpen }}" style="display:flex;gap:14px;align-items:center;flex:1;min-width:0;border:none;background:none;padding:0;text-align:left;cursor:pointer">
+              <div style="width:88px;height:88px;border-radius:14px;overflow:hidden;background:#F3EDE7;flex-shrink:0"><img src="{{ m.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+              <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
+                <div style="font-size:12px;color:#8C837C;display:flex;gap:6px;align-items:center">{{ m.cuisine }} · {{ m.when }} 저장</div>
+                <div style="font-size:16px;font-weight:700;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ m.name }}</div>
+                <div style="display:flex;gap:6px">
+                  <span style="height:24px;padding:0 8px;border-radius:7px;background:#FFF1EB;color:#C9471A;font-size:12px;font-weight:600;display:flex;align-items:center;gap:2px"><span style="font-family:'Material Symbols Rounded';font-size:14px;line-height:1">local_fire_department</span>{{ m.diff }}</span>
+                  <span style="height:24px;padding:0 8px;border-radius:7px;background:#F3EFEB;color:#4A423D;font-size:12px;font-weight:600;display:flex;align-items:center;gap:2px"><span style="font-family:'Material Symbols Rounded';font-size:14px;line-height:1">schedule</span>{{ m.time }}</span>
+                </div>
+              </div>
+            </button>
+            <button onClick="{{ m.onMore }}" aria-label="더보기" style="width:40px;height:44px;border:none;background:none;cursor:pointer;color:#8C837C;align-self:flex-start;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">more_vert</span></button>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{ noResult }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:60px 0;text-align:center;color:#8C837C;font-size:15px;display:flex;flex-direction:column;align-items:center;gap:8px"><span style="font-family:'Material Symbols Rounded';font-size:36px;line-height:1;color:#D9CFC6">search_off</span>조건에 맞는 레시피가 없어요</div>
+    </sc-if>
+    <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:48px 12px 0;text-align:center;display:flex;flex-direction:column;align-items:center">
+        <div style="width:200px;height:150px;border-radius:24px;overflow:hidden;background:#F3EDE7;opacity:.9"><img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=70" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div style="font-size:20px;font-weight:700;margin-top:24px">아직 저장한 레시피가 없어요</div>
+        <div style="font-size:15px;color:#8C837C;margin-top:8px;line-height:1.55">냉장고 속 재료로 AI 레시피를 만들고<br>마음에 드는 레시피를 저장해 보세요.</div>
+        <button onClick="{{ goCreate }}" style="height:52px;padding:0 24px;margin-top:24px;border:none;border-radius:16px;background:#EE5A24;color:#fff;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 10px 22px -10px rgba(238,90,36,.8)">✨ AI 레시피 만들기</button>
+      </div>
+    </sc-if>
+  </div>
+  <div style="height:76px;flex-shrink:0;border-top:1px solid #F1ECE7;background:#fff;display:grid;grid-template-columns:repeat(4,1fr);padding-bottom:12px">
+    <sc-for list="{{ nav }}" as="n" hint-placeholder-count="4">
+      <button onClick="{{ n.onClick }}" style="border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ n.color }}">
+        <span style="font-family:'Material Symbols Rounded';font-size:26px;line-height:1;font-variation-settings:'FILL' {{ n.fill }}">{{ n.icon }}</span>
+        <span style="font-size:11px;font-weight:{{ n.w }}">{{ n.label }}</span>
+      </button>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<!-- MYPAGE -->
+<sc-if value="{{ isMypage }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="마이페이지" style="position:absolute;inset:0;display:flex;flex-direction:column;background:#FAF7F4">
+  <div style="height:56px;display:flex;align-items:center;padding:0 20px;flex-shrink:0;background:#FAF7F4">
+    <div style="font-size:24px;font-weight:700;letter-spacing:-0.4px">마이페이지</div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:8px 16px 28px;display:flex;flex-direction:column;gap:12px">
+    <div style="background:#fff;border-radius:24px;padding:20px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="width:64px;height:64px;border-radius:50%;background:#FFE3D6;color:#C9471A;font-size:26px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ nickInitial }}</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:19px;font-weight:700">{{ displayNick }}</div>
+          <div style="font-size:14px;color:#8C837C;margin-top:2px">{{ displayEmail }}</div>
+        </div>
+        <button onClick="{{ openProfile }}" style="height:36px;padding:0 12px;border-radius:10px;border:1.5px solid #E8E1DB;background:#fff;font-size:13px;font-weight:600;cursor:pointer">프로필 수정</button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);margin-top:18px;background:#FAF7F4;border-radius:16px;padding:14px 0">
+        <button onClick="{{ goCreate }}" style="border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font-size:20px;font-weight:800">{{ madeCount }}</span><span style="font-size:12px;color:#8C837C">만든 레시피</span></button>
+        <button onClick="{{ goMyRecipes }}" style="border:none;border-left:1px solid #EEE8E3;border-right:1px solid #EEE8E3;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font-size:20px;font-weight:800">{{ savedCount }}</span><span style="font-size:12px;color:#8C837C">저장한 레시피</span></button>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font-size:20px;font-weight:800">48</span><span style="font-size:12px;color:#8C837C">좋아요</span></div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border-radius:24px;padding:6px 18px">
+      <div style="font-size:13px;color:#8C837C;font-weight:600;padding:12px 0 4px">요리 설정</div>
+      <div style="display:flex;align-items:center;min-height:56px;gap:12px;border-bottom:1px solid #F3EEE9">
+        <span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:#4A423D">notifications</span>
+        <span style="flex:1;font-size:15px">알림 설정</span>
+        <button onClick="{{ toggleNotif }}" aria-label="알림 토글" style="width:52px;height:32px;border:none;border-radius:999px;cursor:pointer;position:relative;padding:0;background:{{ notifBg }}"><span style="position:absolute;top:3px;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:left .2s;left:{{ notifLeft }}"></span></button>
+      </div>
+      <div style="display:flex;align-items:center;min-height:56px;gap:12px;border-bottom:1px solid #F3EEE9">
+        <span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:#4A423D">group</span>
+        <span style="flex:1;font-size:15px">기본 인분</span>
+        <div style="display:flex;align-items:center;gap:2px;background:#F7F4F1;border-radius:12px;padding:3px">
+          <button onClick="{{ defDec }}" aria-label="감소" style="width:34px;height:34px;border:none;border-radius:9px;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">remove</span></button>
+          <div style="min-width:48px;text-align:center;font-size:14px;font-weight:700">{{ defServ }}인분</div>
+          <button onClick="{{ defInc }}" aria-label="증가" style="width:34px;height:34px;border:none;border-radius:9px;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">add</span></button>
+        </div>
+      </div>
+      <button onClick="{{ openPrefCuisine }}" style="width:100%;display:flex;align-items:center;min-height:56px;gap:12px;border:none;border-bottom:1px solid #F3EEE9;background:none;padding:0;cursor:pointer;text-align:left">
+        <span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:#4A423D">restaurant</span>
+        <span style="flex:1;font-size:15px">선호 요리</span>
+        <span style="font-size:14px;color:#8C837C">{{ prefText }}</span>
+        <span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:#C9C0B9">chevron_right</span>
+      </button>
+      <button onClick="{{ openPrefEx }}" style="width:100%;display:flex;align-items:center;min-height:56px;gap:12px;border:none;background:none;padding:0;cursor:pointer;text-align:left">
+        <span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:#4A423D">block</span>
+        <span style="flex:1;font-size:15px">제외 재료</span>
+        <span style="font-size:14px;color:#8C837C">{{ exText }}</span>
+        <span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:#C9C0B9">chevron_right</span>
+      </button>
+    </div>
+
+    <div style="background:#fff;border-radius:24px;padding:6px 18px">
+      <div style="font-size:13px;color:#8C837C;font-weight:600;padding:12px 0 4px">고객 지원</div>
+      <sc-for list="{{ supportRows }}" as="r" hint-placeholder-count="3">
+        <button onClick="{{ r.onClick }}" style="width:100%;display:flex;align-items:center;min-height:52px;gap:12px;border:none;background:none;padding:0;cursor:pointer;text-align:left;font-size:15px">
+          <span style="flex:1">{{ r.label }}</span>
+          <span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:#C9C0B9">chevron_right</span>
+        </button>
+      </sc-for>
+    </div>
+    <button onClick="{{ logout }}" style="height:52px;border:none;background:none;font-size:15px;color:#8C837C;cursor:pointer;text-decoration:underline">로그아웃</button>
+  </div>
+  <div style="height:76px;flex-shrink:0;border-top:1px solid #F1ECE7;background:#fff;display:grid;grid-template-columns:repeat(4,1fr);padding-bottom:12px">
+    <sc-for list="{{ nav }}" as="n" hint-placeholder-count="4">
+      <button onClick="{{ n.onClick }}" style="border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ n.color }}">
+        <span style="font-family:'Material Symbols Rounded';font-size:26px;line-height:1;font-variation-settings:'FILL' {{ n.fill }}">{{ n.icon }}</span>
+        <span style="font-size:11px;font-weight:{{ n.w }}">{{ n.label }}</span>
+      </button>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<!-- SHEETS -->
+<sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;justify-content:flex-end">
+  <div onClick="{{ closeSheet }}" style="position:absolute;inset:0;background:rgba(20,14,10,.45)"></div>
+  <div style="position:relative;background:#fff;border-radius:28px 28px 0 0;padding:10px 20px 28px">
+    <div style="width:40px;height:5px;border-radius:3px;background:#E1D9D2;margin:0 auto 14px"></div>
+
+    <sc-if value="{{ isMenuSheet }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;gap:12px;align-items:center;padding-bottom:12px;border-bottom:1px solid #F3EEE9">
+        <div style="width:48px;height:48px;border-radius:12px;overflow:hidden;background:#F3EDE7"><img src="{{ menuItem.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div style="font-size:16px;font-weight:700">{{ menuItem.name }}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;padding-top:6px">
+        <sc-for list="{{ menuActions }}" as="a" hint-placeholder-count="5">
+          <button onClick="{{ a.onClick }}" style="height:54px;border:none;background:none;display:flex;align-items:center;gap:14px;font-size:16px;cursor:pointer;padding:0 4px;color:{{ a.fg }}"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">{{ a.icon }}</span>{{ a.label }}</button>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isDelSheet }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center;padding:8px 0 4px">
+        <div style="width:56px;height:56px;border-radius:50%;background:#FDECEC;color:#E5484D;display:flex;align-items:center;justify-content:center;margin:0 auto"><span style="font-family:'Material Symbols Rounded';font-size:28px;line-height:1">delete</span></div>
+        <div style="font-size:19px;font-weight:700;margin-top:14px">레시피를 삭제할까요?</div>
+        <div style="font-size:15px;color:#8C837C;margin-top:6px;line-height:1.5">'{{ delItem.name }}' 레시피가<br>나의 레시피에서 삭제돼요.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:22px">
+        <button onClick="{{ closeSheet }}" style="height:54px;border:none;border-radius:16px;background:#F3EFEB;font-size:16px;font-weight:700;cursor:pointer">취소</button>
+        <button onClick="{{ confirmDel }}" style="height:54px;border:none;border-radius:16px;background:#E5484D;color:#fff;font-size:16px;font-weight:700;cursor:pointer">삭제하기</button>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isCuisineSheet }}" hint-placeholder-val="{{ false }}">
+      <div style="font-size:19px;font-weight:700">선호 요리 설정</div>
+      <div style="font-size:14px;color:#8C837C;margin-top:4px">AI 추천에 우선 반영돼요</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">
+        <sc-for list="{{ suCuisineChips }}" as="c" hint-placeholder-count="6">
+          <button onClick="{{ c.onClick }}" style="height:40px;padding:0 16px;border-radius:999px;font-size:14px;cursor:pointer;background:{{ c.bg }};border:1.5px solid {{ c.bd }};color:{{ c.fg }};font-weight:{{ c.w }}">{{ c.label }}</button>
+        </sc-for>
+      </div>
+      <button onClick="{{ closeSheetSaved }}" style="width:100%;height:56px;margin-top:22px;border:none;border-radius:16px;background:#EE5A24;color:#fff;font-size:17px;font-weight:700;cursor:pointer">완료</button>
+    </sc-if>
+
+    <sc-if value="{{ isExSheet }}" hint-placeholder-val="{{ false }}">
+      <div style="font-size:19px;font-weight:700">제외 재료 설정</div>
+      <div style="font-size:14px;color:#8C837C;margin-top:4px">모든 레시피 생성 시 자동으로 제외돼요</div>
+      <div style="display:flex;gap:8px;margin-top:16px">
+        <input value="{{ exInput }}" onChange="{{ onEx }}" onKeyDown="{{ onExKey }}" placeholder="예: 땅콩" style="flex:1;min-width:0;height:52px;border-radius:14px;border:1.5px solid #F7F4F1;background:#F7F4F1;padding:0 16px;font-size:15px;outline:none" style-focus="border-color:#EE5A24;background:#fff">
+        <button onClick="{{ addEx }}" style="height:52px;padding:0 18px;border:none;border-radius:14px;background:#1F1A17;color:#fff;font-size:15px;font-weight:600;cursor:pointer">추가</button>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+        <sc-for list="{{ exChips }}" as="c" hint-placeholder-count="1">
+          <div style="height:36px;padding:0 6px 0 12px;border-radius:999px;background:#F1ECE7;color:#4A423D;font-size:14px;display:flex;align-items:center;gap:2px">{{ c.name }}<button onClick="{{ c.onRemove }}" aria-label="삭제" style="width:28px;height:28px;border:none;background:none;cursor:pointer;color:#8C837C;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">close</span></button></div>
+        </sc-for>
+      </div>
+      <button onClick="{{ closeSheetSaved }}" style="width:100%;height:56px;margin-top:22px;border:none;border-radius:16px;background:#EE5A24;color:#fff;font-size:17px;font-weight:700;cursor:pointer">완료</button>
+    </sc-if>
+
+    <sc-if value="{{ isProfileSheet }}" hint-placeholder-val="{{ false }}">
+      <div style="font-size:19px;font-weight:700">프로필 수정</div>
+      <div style="display:flex;justify-content:center;margin-top:18px">
+        <div style="position:relative;width:80px;height:80px;border-radius:50%;background:#FFE3D6;color:#C9471A;font-size:32px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ nickInitial }}<span style="position:absolute;right:-2px;bottom:-2px;width:30px;height:30px;border-radius:50%;background:#1F1A17;color:#fff;border:3px solid #fff;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:15px;line-height:1">photo_camera</span></span></div>
+      </div>
+      <div style="font-size:14px;font-weight:600;color:#4A423D;margin-top:18px;margin-bottom:8px">닉네임</div>
+      <input value="{{ nickEdit }}" onChange="{{ onNickEdit }}" placeholder="닉네임" style="height:52px;border-radius:14px;border:1.5px solid #F7F4F1;background:#F7F4F1;padding:0 16px;font-size:16px;outline:none;width:100%" style-focus="border-color:#EE5A24;background:#fff">
+      <button onClick="{{ saveProfile }}" style="width:100%;height:56px;margin-top:22px;border:none;border-radius:16px;background:#EE5A24;color:#fff;font-size:17px;font-weight:700;cursor:pointer">저장하기</button>
+    </sc-if>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;left:20px;right:20px;bottom:104px;z-index:30;background:#1F1A17;color:#fff;border-radius:16px;padding:14px 16px;font-size:14px;font-weight:500;display:flex;align-items:center;gap:10px;box-shadow:0 12px 30px -10px rgba(0,0,0,.4)">
+    <span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:#6BD4A0;font-variation-settings:'FILL' 1">check_circle</span>
+    <span style="flex:1">{{ toast }}</span>
+  </div>
+</sc-if>
+
+  </div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startScreen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;login&quot;,&quot;signup&quot;,&quot;signupDone&quot;,&quot;home&quot;,&quot;create&quot;,&quot;loading&quot;,&quot;detail&quot;,&quot;myrecipes&quot;,&quot;mypage&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;forceEmpty&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showIndex&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  static IMG(id) { return 'https://images.unsplash.com/photo-' + id + '?auto=format&fit=crop&w=800&q=70'; }
+  static S = { veg: '1498837167922-ddd27525d352', cook: '1466637574441-749b8f19452f', bowl: '1490645935967-10de6ba17061', spread: '1504674900247-0877df9cc836' };
+  static R = {
+    fried: { name: '대파 듬뿍 계란 볶음밥', img: '1603133872878-684f208fb84b', cuisine: '한식', diff: '쉬움', time: 15, likes: '3.1k',
+      desc: '파기름의 고소한 향과 부드러운 계란이 어우러진, 15분 만에 완성하는 한 그릇 요리예요.',
+      ingr: [['밥', 2, '공기'], ['계란', 3, '개'], ['대파', 1, '대'], ['양파', 0.5, '개'], ['간장', 1, '큰술'], ['굴소스', 0.5, '큰술'], ['식용유', 2, '큰술'], ['참기름', 1, '작은술'], ['소금·후추', null, '약간']],
+      steps: [['재료 손질하기', '대파는 0.5cm 두께로 송송 썰고, 양파는 잘게 다져주세요. 계란은 볼에 풀어 소금 한 꼬집을 넣어요.', 3, 'veg'],
+        ['파기름 내기', '달군 팬에 식용유를 두르고 대파의 2/3를 넣어 중약불에서 2분간 볶아 향을 내요. 양파를 넣고 투명해질 때까지 볶아주세요.', 4, 'cook'],
+        ['계란 스크램블', '재료를 팬 한쪽으로 밀고, 빈 곳에 계란물을 부어 반쯤 익을 때까지 저어 부드러운 스크램블을 만들어요.', 2, 'spread'],
+        ['밥 넣고 볶아 마무리', '밥을 넣고 센불로 올려 간장과 굴소스를 팬 가장자리에 둘러 볶아요. 남은 대파와 참기름을 넣고 불을 꺼주세요.', 4, 'self']],
+      tip: '간장을 팬 가장자리에 둘러 살짝 태우면 불맛이 살아나요. 갓 지은 밥보다 찬밥을 쓰면 밥알이 뭉치지 않고 고슬고슬하게 볶아져요.' },
+    soup: { name: '양파 계란 채소 수프', img: '1547592180-85f173990554', cuisine: '한식', diff: '쉬움', time: 20, likes: '1.2k',
+      desc: '양파의 단맛이 우러난 국물에 계란을 풀어 넣은, 속이 편안한 따뜻한 한 그릇이에요.',
+      ingr: [['양파', 1, '개'], ['계란', 2, '개'], ['대파', 0.5, '대'], ['감자', 1, '개'], ['물', 600, 'ml'], ['국간장', 1, '큰술'], ['소금', null, '약간']],
+      steps: [['채소 썰기', '양파는 채 썰고 감자는 한입 크기로, 대파는 어슷 썰어 준비해요.', 3, 'veg'],
+        ['국물 끓이기', '냄비에 물과 감자, 양파를 넣고 중불에서 10분간 끓여 단맛을 우려내요. 국간장으로 간을 맞춰요.', 10, 'cook'],
+        ['계란 풀어 마무리', '푼 계란을 원을 그리듯 천천히 붓고 30초간 젓지 않고 기다린 뒤, 대파를 올려 불을 꺼요.', 2, 'self']],
+      tip: '계란을 붓고 바로 젓지 말고 30초 기다리면 국물이 탁해지지 않고 몽글몽글한 계란꽃이 피어요.' },
+    toast: { name: '대파 에그 토스트', img: '1482049016688-2d3e1b311543', cuisine: '양식', diff: '쉬움', time: 10, likes: '2.0k',
+      desc: '바삭한 빵 위에 대파 스크램블을 듬뿍 올린, 아침에도 부담 없는 10분 토스트예요.',
+      ingr: [['식빵', 2, '장'], ['계란', 2, '개'], ['대파', 0.5, '대'], ['버터', 1, '큰술'], ['우유', 2, '큰술'], ['소금·후추', null, '약간']],
+      steps: [['빵 굽기', '마른 팬에 식빵을 올려 앞뒤로 노릇하게 구워 바삭하게 만들어요.', 3, 'spread'],
+        ['대파 스크램블', '버터를 녹이고 송송 썬 대파를 볶다가, 우유를 섞은 계란물을 부어 약불에서 천천히 저어요.', 4, 'cook'],
+        ['올려서 완성', '구운 빵 위에 스크램블을 올리고 후추를 갈아 뿌려 완성해요.', 1, 'self']],
+      tip: '스크램블은 80% 정도 익었을 때 불을 끄세요. 남은 열로 익으면서 촉촉한 식감이 유지돼요.' },
+    pasta: { name: '토마토 바질 파스타', img: '1473093295043-cdd812d0e601', cuisine: '양식', diff: '쉬움', time: 20, likes: '2.4k',
+      desc: '방울토마토를 뭉근히 익혀 만든 상큼한 소스에 바질 향을 더한 기본 파스타예요.',
+      ingr: [['스파게티', 200, 'g'], ['방울토마토', 12, '개'], ['마늘', 3, '쪽'], ['바질', 6, '장'], ['올리브오일', 3, '큰술'], ['파마산 치즈', 2, '큰술'], ['소금', null, '약간']],
+      steps: [['면 삶기', '끓는 물 1L에 소금 1큰술을 넣고 스파게티를 8분간 삶아요. 면수는 한 컵 남겨두세요.', 8, 'cook'],
+        ['소스 만들기', '올리브오일에 편 썬 마늘을 볶다가 반 가른 방울토마토를 넣고 즙이 나올 때까지 5분간 익혀요.', 5, 'veg'],
+        ['버무려 완성', '삶은 면과 면수 3큰술을 넣고 1분간 볶은 뒤, 바질과 파마산 치즈를 올려요.', 2, 'self']],
+      tip: '면수에 녹아 있는 전분이 소스를 면에 착 붙게 해줘요. 소스가 뻑뻑하면 면수를 한 숟가락씩 더해 주세요.' },
+    risotto: { name: '버섯 크림 리조또', img: '1476124369491-e7addf5db371', cuisine: '양식', diff: '보통', time: 35, likes: '1.8k',
+      desc: '버섯의 감칠맛과 크림의 고소함이 쌀알 하나하나에 스며든 진한 리조또예요.',
+      ingr: [['쌀', 1, '컵'], ['양송이버섯', 6, '개'], ['양파', 0.5, '개'], ['버터', 1, '큰술'], ['우유', 300, 'ml'], ['치킨스톡', 400, 'ml'], ['파마산 치즈', 3, '큰술']],
+      steps: [['버섯·양파 볶기', '버터에 다진 양파를 볶다가 슬라이스한 버섯을 넣고 숨이 죽을 때까지 볶아요.', 5, 'veg'],
+        ['쌀 익히기', '쌀을 넣고 1분 볶은 뒤, 치킨스톡을 한 국자씩 나눠 넣으며 18분간 저어 익혀요.', 18, 'cook'],
+        ['크림 마무리', '우유와 치즈를 넣고 걸쭉해질 때까지 2분간 저어 완성해요.', 3, 'self']],
+      tip: '육수를 한 번에 붓지 말고 나눠 넣어야 쌀의 전분이 빠져나와 크리미한 식감이 살아나요.' },
+    poke: { name: '연어 포케 볼', img: '1546069901-ba9599a7e63c', cuisine: '일식', diff: '쉬움', time: 15, likes: '2.9k',
+      desc: '신선한 연어와 아삭한 채소를 밥 위에 담아 간장 드레싱으로 마무리한 한 그릇이에요.',
+      ingr: [['밥', 2, '공기'], ['연어', 200, 'g'], ['아보카도', 1, '개'], ['오이', 0.5, '개'], ['간장', 2, '큰술'], ['참기름', 1, '큰술']],
+      steps: [['재료 썰기', '연어와 아보카도는 깍둑 썰고 오이는 얇게 썰어요.', 5, 'veg'],
+        ['드레싱 만들기', '간장, 참기름, 설탕 약간을 섞어 드레싱을 만들어요.', 2, 'cook'],
+        ['담아서 완성', '밥 위에 재료를 보기 좋게 담고 드레싱을 뿌려요.', 2, 'self']],
+      tip: '연어는 썰기 전 키친타월로 물기를 닦으면 비린내가 줄고 식감이 탱탱해져요.' },
+    skewer: { name: '데리야끼 닭꼬치', img: '1555939594-58d7cb561ad1', cuisine: '일식', diff: '보통', time: 30, likes: '1.5k',
+      desc: '달콤짭짤한 데리야끼 소스를 여러 번 덧발라 윤기 나게 구운 닭꼬치예요.',
+      ingr: [['닭다리살', 400, 'g'], ['대파', 1, '대'], ['간장', 3, '큰술'], ['맛술', 2, '큰술'], ['설탕', 1, '큰술']],
+      steps: [['꼬치 꿰기', '닭고기와 대파를 한입 크기로 썰어 번갈아 꼬치에 꿰어요.', 8, 'veg'],
+        ['소스 졸이기', '간장, 맛술, 설탕을 약불에서 걸쭉해질 때까지 졸여요.', 5, 'cook'],
+        ['구우며 바르기', '팬에 꼬치를 굽다가 소스를 3번 덧발라 윤기 나게 구워요.', 12, 'self']],
+      tip: '소스는 마지막 5분에 바르세요. 처음부터 바르면 설탕이 먼저 타 버려요.' },
+    pancake: { name: '수플레 팬케이크', img: '1567620905732-2d1ec7ab7445', cuisine: '디저트', diff: '어려움', time: 40, likes: '4.2k',
+      desc: '머랭으로 높이를 살린, 입에서 사르르 녹는 폭신한 팬케이크예요.',
+      ingr: [['계란', 2, '개'], ['박력분', 30, 'g'], ['우유', 2, '큰술'], ['설탕', 25, 'g'], ['버터', null, '약간']],
+      steps: [['반죽 만들기', '노른자에 우유와 체 친 박력분을 섞어 매끈한 반죽을 만들어요.', 5, 'spread'],
+        ['머랭 올리기', '흰자에 설탕을 3번 나눠 넣으며 뿔이 설 때까지 휘핑해요.', 8, 'cook'],
+        ['약불에 굽기', '반죽에 머랭을 3번 나눠 섞고, 뚜껑을 덮어 약불에서 앞뒤로 6분씩 구워요.', 15, 'self']],
+      tip: '팬에 물 1큰술을 넣고 뚜껑을 덮어 구우면 스팀으로 속까지 촉촉하게 익어요.' },
+    grain: { name: '채소 듬뿍 그레인볼', img: '1512621776951-a57141f2eefd', cuisine: '양식', diff: '쉬움', time: 15, likes: '1.1k',
+      desc: '곡물과 신선한 채소를 한 그릇에 담은 가볍고 든든한 샐러드 볼이에요.',
+      ingr: [['퀴노아', 1, '컵'], ['방울토마토', 8, '개'], ['아보카도', 1, '개'], ['병아리콩', 100, 'g'], ['올리브오일', 2, '큰술'], ['레몬즙', 1, '큰술']],
+      steps: [['곡물 익히기', '퀴노아를 헹군 뒤 물에 넣고 12분간 삶아 체에 밭쳐요.', 12, 'cook'],
+        ['채소 손질', '방울토마토는 반으로, 아보카도는 슬라이스해요.', 3, 'veg'],
+        ['담아서 완성', '그릇에 곡물과 채소를 담고 올리브오일과 레몬즙을 뿌려요.', 1, 'self']],
+      tip: '퀴노아는 삶기 전 충분히 헹궈야 쓴맛이 사라져요.' },
+  };
+  static DIFF = { easy: '쉬움', mid: '보통', hard: '어려움' };
+  static CUISINES = ['한식', '양식', '중식', '일식', '분식', '디저트'];
+  static QUICK = ['계란', '대파', '양파', '감자', '두부', '김치', '버섯', '닭가슴살', '토마토'];
+
+  state = (() => {
+    const now = Date.now(), d = 86400000;
+    return {
+      screen: this.props.startScreen ?? 'home', hist: [],
+      email: '', pw: '', showPw: false, keep: true, loginErr: '',
+      nick: '', suEmail: '', suPw: '', suPw2: '', agree: { terms: false, privacy: false, marketing: false }, suCuisines: ['한식', '양식'], suLevel: '초보',
+      quick: '', quickList: Component.QUICK.slice(), quickSel: ['계란', '대파', '양파'],
+      ings: ['계란', '대파', '양파'], ingInput: '', servings: 2, diff: null, time: '30분', cuisine: '한식', excl: ['오이'], exInput: '',
+      genIdx: 0, genStage: 0, detail: { key: 'fried', servings: 2, diff: '쉬움', ai: true }, checked: {},
+      recent: [{ key: 'grain', when: '2시간 전' }, { key: 'toast', when: '어제' }],
+      saved: [
+        { uid: 's1', key: 'pasta', ts: now - 2 * 3600000 }, { uid: 's2', key: 'soup', ts: now - 3 * d },
+        { uid: 's3', key: 'risotto', ts: now - 8 * d }, { uid: 's4', key: 'skewer', ts: now - 15 * d }, { uid: 's5', key: 'poke', ts: now - 22 * d },
+      ],
+      filter: '전체', query: '', sort: '최근 저장순', sortOpen: false, sheet: null, sheetFor: null,
+      notif: true, defServ: 2, nickEdit: '', toast: null, made: 12,
+    };
+  })();
+
+  componentDidMount() { if (this.props.startScreen === 'loading') this.generate(false); }
+  componentWillUnmount() { clearInterval(this.timer); clearTimeout(this.tt); }
+
+  go(screen, extra) { this.setState(st => ({ hist: [...st.hist, st.screen], screen, sheet: null, sortOpen: false, ...(extra || {}) })); }
+  tab(screen, extra) { clearInterval(this.timer); this.setState({ screen, hist: [], sheet: null, sortOpen: false, ...(extra || {}) }); }
+  back() { clearInterval(this.timer); this.setState(st => { const h = [...st.hist]; const p = h.pop() || 'home'; return { screen: p, hist: h, sheet: null }; }); }
+  showToast(msg) { clearTimeout(this.tt); this.setState({ toast: msg }); this.tt = setTimeout(() => this.setState({ toast: null }), 2200); }
+  pool() { const c = this.state.cuisine; return c === '양식' ? ['pasta', 'toast', 'risotto'] : c === '일식' ? ['poke', 'skewer', 'fried'] : c === '디저트' ? ['pancake', 'toast', 'grain'] : ['fried', 'soup', 'toast']; }
+
+  generate(regen) {
+    clearInterval(this.timer);
+    const idx = regen ? this.state.genIdx + 1 : 0;
+    this.setState(st => ({ screen: 'loading', hist: regen ? st.hist : (st.screen === 'loading' ? st.hist : [...st.hist, st.screen]), genStage: 0, genIdx: idx }));
+    this.timer = setInterval(() => {
+      const n = this.state.genStage + 1;
+      if (n > 4) {
+        clearInterval(this.timer);
+        const pool = this.pool(), key = pool[idx % pool.length], R = Component.R;
+        this.setState(st => ({ screen: 'detail', made: st.made + 1, detail: { key, servings: st.servings, diff: st.diff ? Component.DIFF[st.diff] : R[key].diff, ai: true }, checked: {},
+          recent: [{ key, when: '방금 전' }, ...st.recent.filter(r => r.key !== key)].slice(0, 3) }));
+      } else this.setState({ genStage: n });
+    }, 800);
+  }
+
+  openRecipe(key, ai) { this.go('detail', { detail: { key, servings: this.state.defServ, diff: Component.R[key].diff, ai: !!ai }, checked: {} }); }
+  addTo(field, inputField, extra) {
+    const v = (this.state[inputField] || '').trim();
+    if (!v) return;
+    const names = v.split(/[,\s]+/).filter(Boolean);
+    this.setState(st => ({ [field]: [...st[field], ...names.filter(x => !st[field].includes(x))], [inputField]: '', ...(extra ? extra(st, names) : {}) }));
+  }
+  fmt(q, unit) {
+    if (q == null) return unit;
+    if (unit === 'g' || unit === 'ml') return Math.round(q) + unit;
+    const v = Math.round(q * 4) / 4, w = Math.floor(v), f = v - w;
+    const fr = { 0.25: '¼', 0.5: '½', 0.75: '¾' }[f] || '';
+    return ((w ? String(w) : '') + fr || '0') + unit;
+  }
+  when(ts) { const d = Math.floor((Date.now() - ts) / 86400000); return d < 1 ? '오늘' : d < 7 ? d + '일 전' : Math.floor(d / 7) + '주 전'; }
+
+  renderVals() {
+    const s = this.state, R = Component.R, I = Component.IMG, P = '#EE5A24';
+    const chip = (on, extra) => ({ bg: on ? '#FFF1EB' : '#fff', bd: on ? P : '#E8E1DB', fg: on ? '#C9471A' : '#4A423D', w: on ? 700 : 500, on, ...extra });
+    const imgOf = k => I(R[k].img);
+    const scr = s.screen;
+    const forceEmpty = this.props.forceEmpty ?? false;
+    const nick = s.nick.trim() || '한우리';
+
+    const navDef = [['home', 'home', '홈'], ['create', 'auto_awesome', 'AI 만들기'], ['myrecipes', 'bookmark', '나의 레시피'], ['mypage', 'person', '마이']];
+    const nav = navDef.map(([id, icon, label]) => { const a = scr === id; return { icon, label, color: a ? P : '#9A918A', fill: a ? 1 : 0, w: a ? 700 : 500, onClick: () => this.tab(id) }; });
+
+    const idx = [['login', '로그인'], ['signup', '회원가입'], ['signupDone', '가입 완료'], ['home', '홈'], ['create', '레시피 생성'], ['loading', 'AI 생성 중'], ['detail', '레시피 상세'], ['myrecipes', '나의 레시피'], ['myEmpty', '나의 레시피 · 빈 상태'], ['mypage', '마이페이지']];
+    const indexItems = idx.map(([id, label]) => {
+      const a = id === 'myEmpty' ? (scr === 'myrecipes' && s.saved.length === 0) : id === 'myrecipes' ? (scr === 'myrecipes' && s.saved.length > 0) : scr === id;
+      return { label, bg: a ? '#1F1A17' : 'rgba(255,255,255,.7)', fg: a ? '#fff' : '#4A423D', w: a ? 700 : 500,
+        onClick: () => {
+          if (id === 'loading') { this.setState({ hist: ['create'] }); this.generate(false); return; }
+          if (id === 'myEmpty') { this.tab('myrecipes', { saved: [], filter: '전체', query: '' }); return; }
+          if (id === 'detail') { this.tab('detail', { hist: ['home'], detail: { key: 'fried', servings: 2, diff: '쉬움', ai: true }, checked: {} }); this.setState({ hist: ['home'] }); return; }
+          if (id === 'myrecipes' && s.saved.length === 0) { const now = Date.now(); this.tab('myrecipes', { saved: [{ uid: 's1', key: 'pasta', ts: now }, { uid: 's2', key: 'soup', ts: now - 3 * 864e5 }, { uid: 's3', key: 'risotto', ts: now - 8 * 864e5 }] }); return; }
+          this.tab(id);
+          if (['signup', 'create', 'signupDone'].includes(id)) this.setState({ hist: [id === 'create' ? 'home' : 'login'] });
+        } };
+    });
+
+    // signup
+    const pwOk = s.suPw.length >= 8 && /[a-zA-Z]/.test(s.suPw) && /\d/.test(s.suPw);
+    const pw2Msg = s.suPw2 ? (s.suPw2 === s.suPw ? '비밀번호가 일치해요' : '비밀번호가 일치하지 않아요') : '';
+    const allOn = s.agree.terms && s.agree.privacy && s.agree.marketing;
+    const suValid = s.nick.trim().length >= 2 && /@/.test(s.suEmail) && pwOk && s.suPw === s.suPw2 && s.agree.terms && s.agree.privacy;
+    const levels = [['초보', 'egg', '라면 정도는 OK'], ['중급', 'skillet', '집밥 자주 해요'], ['고수', 'chef_hat', '뭐든 자신 있어요']];
+
+    // create
+    const doneFlags = [s.ings.length > 0, s.servings > 0, !!s.diff, !!s.time && !!s.cuisine];
+    const firstUndone = doneFlags.indexOf(false);
+    const progSegs = ['재료', '인분', '난이도', '옵션'].map((label, i) => ({ label, bar: doneFlags[i] ? P : i === firstUndone ? '#FFC9B3' : '#EEE8E3', fg: doneFlags[i] || i === firstUndone ? '#1F1A17' : '#ABA29B', w: i === firstUndone ? 700 : 600 }));
+    const canGen = s.ings.length > 0;
+    const dcards = [['easy', '쉬움', '기본 조리\n15분 내외', 1], ['mid', '보통', '굽고 졸이기\n30분 내외', 2], ['hard', '어려움', '정교한 요리\n도전해요', 3]];
+
+    // detail
+    const dd = s.detail, r = R[dd.key], ratio = dd.servings / 2;
+    const ownedSet = s.ings;
+    const ingrRows = r.ingr.map(([n, q, u], i) => { const on = !!s.checked[i]; return {
+      name: n, amt: this.fmt(q == null ? null : q * ratio, u), owned: ownedSet.some(x => n.includes(x)), boxBg: on ? P : '#fff', boxBd: on ? P : '#D9CFC6', fg: on ? '#ABA29B' : '#1F1A17', deco: on ? 'line-through' : 'none',
+      onToggle: () => this.setState(st => ({ checked: { ...st.checked, [i]: !st.checked[i] } })) }; });
+    const checkedN = Object.values(s.checked).filter(Boolean).length;
+    const savedHit = s.saved.find(x => x.key === dd.key && !x.copy);
+    const isSaved = !!savedHit;
+    const doSave = () => { if (isSaved) return; this.setState(st => ({ saved: [{ uid: 'u' + Date.now(), key: dd.key, ts: Date.now(), ai: dd.ai }, ...st.saved] })); this.showToast('나의 레시피에 저장했어요'); };
+
+    // my recipes
+    let list = forceEmpty ? [] : s.saved.slice();
+    const total = list.length;
+    if (s.sort === '최근 저장순') list.sort((a, b) => b.ts - a.ts);
+    if (s.sort === '이름순') list.sort((a, b) => (R[a.key].name).localeCompare(R[b.key].name, 'ko'));
+    if (s.sort === '조리시간순') list.sort((a, b) => R[a.key].time - R[b.key].time);
+    const f = s.filter;
+    if (f === '최근 저장') list = list.filter(x => Date.now() - x.ts < 7 * 864e5);
+    if (f === '한식' || f === '양식') list = list.filter(x => R[x.key].cuisine === f);
+    if (f === '쉬운 요리') list = list.filter(x => R[x.key].diff === '쉬움');
+    if (s.query.trim()) list = list.filter(x => R[x.key].name.includes(s.query.trim()));
+    const nameOf = x => R[x.key].name + (x.copy ? ' (복사본)' : '');
+    const sheetItem = s.saved.find(x => x.uid === s.sheetFor);
+
+    return {
+      showIndex: this.props.showIndex ?? true, indexItems, nav,
+      isLogin: scr === 'login', isSignup: scr === 'signup', isSignupDone: scr === 'signupDone', isHome: scr === 'home', isCreate: scr === 'create',
+      isLoading: scr === 'loading', isDetail: scr === 'detail', isMy: scr === 'myrecipes', isMypage: scr === 'mypage',
+      hideImg: e => { e.target.style.display = 'none'; },
+      back: () => this.back(), goHome: () => this.tab('home'), goCreate: () => this.go('create'), goMypage: () => this.tab('mypage'), goMyRecipes: () => this.tab('myrecipes'),
+      displayNick: nick, nickInitial: nick.slice(0, 1), displayEmail: s.suEmail || s.email || 'hanuri@5minrecipe.kr',
+      toast: s.toast,
+
+      // login
+      email: s.email, pw: s.pw, pwType: s.showPw ? 'text' : 'password', pwIcon: s.showPw ? 'visibility_off' : 'visibility',
+      onEmail: e => this.setState({ email: e.target.value, loginErr: '' }), onPw: e => this.setState({ pw: e.target.value, loginErr: '' }),
+      togglePw: () => this.setState({ showPw: !s.showPw }), toggleKeep: () => this.setState({ keep: !s.keep }),
+      keepBg: s.keep ? P : '#fff', keepBd: s.keep ? P : '#D9CFC6', loginErr: s.loginErr,
+      findPw: () => this.showToast('비밀번호 재설정 메일을 보냈어요'),
+      doLogin: () => { if (!/@/.test(s.email) || s.pw.length < 4) { this.setState({ loginErr: '이메일과 비밀번호를 확인해 주세요' }); return; } this.tab('home'); },
+      socialLogin: () => this.tab('home'), goSignup: () => this.go('signup'),
+
+      // signup
+      nick: s.nick, suEmail: s.suEmail, suPw: s.suPw, suPw2: s.suPw2,
+      onNick: e => this.setState({ nick: e.target.value }), onSuEmail: e => this.setState({ suEmail: e.target.value }),
+      onSuPw: e => this.setState({ suPw: e.target.value }), onSuPw2: e => this.setState({ suPw2: e.target.value }),
+      pwHintColor: pwOk ? '#16804F' : '#ABA29B', pw2Msg, pw2Color: s.suPw2 === s.suPw ? '#16804F' : '#E5484D',
+      suCuisineChips: Component.CUISINES.map(c => chip(s.suCuisines.includes(c), { label: c, onClick: () => this.setState(st => ({ suCuisines: st.suCuisines.includes(c) ? st.suCuisines.filter(x => x !== c) : [...st.suCuisines, c] })) })),
+      levelCards: levels.map(([label, icon, desc]) => { const on = s.suLevel === label; return { label, icon, desc, bg: on ? '#FFF1EB' : '#fff', bd: on ? P : '#EEE8E3', bw: on ? '2px' : '1.5px', ic: on ? P : '#8C837C', onClick: () => this.setState({ suLevel: label }) }; }),
+      allBg: allOn ? P : '#fff', allBd: allOn ? P : '#D9CFC6',
+      toggleAll: () => { const v = !allOn; this.setState({ agree: { terms: v, privacy: v, marketing: v } }); },
+      terms: [['terms', '[필수]', ' 이용약관 동의'], ['privacy', '[필수]', ' 개인정보 수집·이용 동의'], ['marketing', '[선택]', ' 마케팅 정보 수신 동의']].map(([k, tag, label]) => ({
+        tag, label, tagColor: tag === '[필수]' ? '#C9471A' : '#8C837C', color: s.agree[k] ? P : '#D9CFC6', onClick: () => this.setState(st => ({ agree: { ...st.agree, [k]: !st.agree[k] } })) })),
+      showTerms: () => this.showToast('약관 전문은 출시 시 연결돼요'),
+      suBtnBg: suValid ? P : '#F1ECE7', suBtnFg: suValid ? '#fff' : '#ABA29B',
+      doSignup: () => { if (!suValid) { this.showToast('필수 항목을 모두 입력해 주세요'); return; } this.go('signupDone'); },
+      startFirst: () => { this.tab('home'); this.setState({ hist: ['home'], screen: 'create' }); },
+
+      // home
+      notifTap: () => this.showToast('새로운 알림이 없어요'),
+      quick: s.quick, onQuick: e => this.setState({ quick: e.target.value }),
+      addQuick: () => this.addTo('quickList', 'quick', (st, names) => ({ quickSel: [...new Set([...st.quickSel, ...names])] })),
+      onQuickKey: e => { if (e.key === 'Enter') this.addTo('quickList', 'quick', (st, names) => ({ quickSel: [...new Set([...st.quickSel, ...names])] })); },
+      quickChips: s.quickList.map(c => chip(s.quickSel.includes(c), { label: c, onClick: () => this.setState(st => ({ quickSel: st.quickSel.includes(c) ? st.quickSel.filter(x => x !== c) : [...st.quickSel, c] })) })),
+      quickCount: s.quickSel.length,
+      quickGo: () => { if (!s.quickSel.length) { this.showToast('재료를 1개 이상 선택해 주세요'); return; } this.go('create', { ings: s.quickSel.slice() }); },
+      popular: ['pasta', 'poke', 'pancake', 'risotto', 'skewer'].map(k => ({ name: R[k].name, img: imgOf(k), diff: R[k].diff, time: R[k].time + '분', likes: R[k].likes, onClick: () => this.openRecipe(k) })),
+      seeAll: () => this.showToast('인기 레시피 전체보기는 준비 중이에요'),
+      recentList: s.recent.map(x => ({ name: R[x.key].name, img: imgOf(x.key), diff: R[x.key].diff, time: R[x.key].time + '분', cuisine: R[x.key].cuisine, when: x.when, onClick: () => this.openRecipe(x.key, true) })),
+
+      // create
+      resetCreate: () => this.setState({ ings: [], servings: s.defServ, diff: null, time: '30분', cuisine: '한식', ingInput: '' }),
+      ingInput: s.ingInput, onIng: e => this.setState({ ingInput: e.target.value }),
+      addIng: () => this.addTo('ings', 'ingInput'), onIngKey: e => { if (e.key === 'Enter') this.addTo('ings', 'ingInput'); },
+      ingCount: s.ings.length, hasIngs: s.ings.length > 0, noIngs: s.ings.length === 0,
+      ingChips: s.ings.map(n => ({ name: n, onRemove: () => this.setState(st => ({ ings: st.ings.filter(x => x !== n) })) })),
+      ingSuggest: Component.QUICK.filter(q => !s.ings.includes(q)).slice(0, 5).map(n => ({ name: n, onAdd: () => this.setState(st => ({ ings: [...st.ings, n] })) })),
+      servings: s.servings,
+      decServ: () => this.setState(st => ({ servings: Math.max(1, st.servings - 1) })), incServ: () => this.setState(st => ({ servings: Math.min(8, st.servings + 1) })),
+      decColor: s.servings <= 1 ? '#D9CFC6' : '#1F1A17', incColor: s.servings >= 8 ? '#D9CFC6' : '#1F1A17',
+      progSegs,
+      diffCards: dcards.map(([k, label, desc, n]) => { const on = s.diff === k; return { label, desc, on, bg: on ? '#FFF1EB' : '#fff', bd: on ? P : '#EEE8E3', dots: [1, 2, 3].map(i => ({ c: i <= n ? (on ? P : '#F2A07F') : '#E8E1DB' })), onClick: () => this.setState({ diff: k }) }; }),
+      timeOpts: ['15분', '30분', '1시간', '상관없음'].map(t => { const on = s.time === t; return { label: t, bg: on ? '#fff' : 'transparent', fg: on ? '#1F1A17' : '#8C837C', w: on ? 700 : 500, sh: on ? '0 1px 4px rgba(60,40,25,.12)' : 'none', onClick: () => this.setState({ time: t }) }; }),
+      cuisineOpts: [...Component.CUISINES, '상관없음'].map(c => chip(s.cuisine === c, { label: c, onClick: () => this.setState({ cuisine: c }) })),
+      exInput: s.exInput, onEx: e => this.setState({ exInput: e.target.value }),
+      addEx: () => this.addTo('excl', 'exInput'), onExKey: e => { if (e.key === 'Enter') this.addTo('excl', 'exInput'); },
+      exChips: s.excl.map(n => ({ name: n, onRemove: () => this.setState(st => ({ excl: st.excl.filter(x => x !== n) })) })),
+      createSummary: canGen ? `재료 ${s.ings.length}개 · ${s.servings}인분 · ${s.diff ? Component.DIFF[s.diff] : '난이도 미선택'} · ${s.time} · ${s.cuisine}` : '재료를 먼저 입력해 주세요',
+      genBg: canGen ? P : '#F1ECE7', genFg: canGen ? '#fff' : '#ABA29B', genSh: canGen ? '0 10px 22px -10px rgba(238,90,36,.8)' : 'none',
+      doGenerate: () => { if (!canGen) { this.showToast('재료를 1개 이상 입력해 주세요'); return; } this.generate(false); },
+
+      // loading
+      spinner: React.createElement('div', { style: { position: 'relative', width: 128, height: 128 } },
+        React.createElement('div', { style: { position: 'absolute', inset: 0, borderRadius: '50%', border: '5px solid #FFE3D6', borderTopColor: P, animation: 'spin 1s linear infinite' } }),
+        React.createElement('div', { style: { position: 'absolute', inset: 18, borderRadius: '50%', background: '#FFF1EB', display: 'flex', alignItems: 'center', justifyContent: 'center', animation: 'pulse 1.6s ease-in-out infinite' } },
+          React.createElement('span', { style: { fontFamily: "'Material Symbols Rounded'", fontSize: 44, lineHeight: 1, color: P, fontVariationSettings: "'FILL' 1" } }, 'auto_awesome'))),
+      loadIngs: s.ings.slice(0, 5),
+      stages: ['입력한 재료 조합 분석', `${s.servings}인분에 맞춰 양 계산`, '난이도에 맞는 조리법 선택', '단계별 조리 과정 정리'].map((label, i) => {
+        const done = i < s.genStage, act = i === s.genStage;
+        return { label, icon: done ? 'check_circle' : act ? 'progress_activity' : 'radio_button_unchecked', fill: done ? 1 : 0, ic: done ? '#22A06B' : act ? P : '#D9CFC6', fg: done || act ? '#1F1A17' : '#ABA29B', w: act ? 700 : 500 };
+      }),
+      genPct: Math.min(100, s.genStage * 25) + '%',
+      cancelGen: () => { clearInterval(this.timer); this.back(); },
+
+      // detail
+      d: { name: r.name, desc: r.desc, img: imgOf(dd.key), diff: dd.diff, time: r.time + '분', servings: dd.servings, ai: dd.ai, tip: r.tip,
+        ingSummary: s.ings.slice(0, 3).join(', ') + (s.ings.length > 3 ? ` 외 ${s.ings.length - 3}개` : ''),
+        checkedText: `${r.ingr.length}개 중 ${checkedN}개 준비 완료` },
+      dDec: () => this.setState(st => ({ detail: { ...st.detail, servings: Math.max(1, st.detail.servings - 1) } })),
+      dInc: () => this.setState(st => ({ detail: { ...st.detail, servings: Math.min(8, st.detail.servings + 1) } })),
+      ingrRows,
+      stepRows: r.steps.map(([t, desc, min, im], i) => ({ no: 'STEP ' + String(i + 1).padStart(2, '0'), title: t, desc, min, img: im === 'self' ? imgOf(dd.key) : I(Component.S[im]) })),
+      isSaved, notSaved: !isSaved, bmColor: isSaved ? P : '#1F1A17', bmFill: isSaved ? 1 : 0, doSave,
+      toggleSave: () => { if (isSaved) { this.setState(st => ({ saved: st.saved.filter(x => x.uid !== savedHit.uid) })); this.showToast('저장을 취소했어요'); } else doSave(); },
+      share: () => this.showToast('레시피 링크를 복사했어요'),
+      regen: () => this.generate(true),
+
+      // my recipes
+      savedCount: forceEmpty ? 0 : s.saved.length, query: s.query, onQuery: e => this.setState({ query: e.target.value }),
+      sort: s.sort, sortOpen: s.sortOpen, toggleSort: () => this.setState({ sortOpen: !s.sortOpen }),
+      sortOpts: ['최근 저장순', '이름순', '조리시간순'].map(o => ({ label: o, on: s.sort === o, bg: s.sort === o ? '#FFF1EB' : 'transparent', fg: s.sort === o ? '#C9471A' : '#1F1A17', w: s.sort === o ? 700 : 500, onClick: () => this.setState({ sort: o, sortOpen: false }) })),
+      filterChips: ['전체', '최근 저장', '한식', '양식', '쉬운 요리'].map(c => { const on = s.filter === c; return { label: c, bg: on ? '#1F1A17' : '#fff', bd: on ? '#1F1A17' : '#E8E1DB', fg: on ? '#fff' : '#4A423D', w: on ? 700 : 500, onClick: () => this.setState({ filter: c }) }; }),
+      isEmpty: total === 0, hasList: total > 0 && list.length > 0, noResult: total > 0 && list.length === 0,
+      myList: list.map(x => ({ name: nameOf(x), img: imgOf(x.key), diff: R[x.key].diff, time: R[x.key].time + '분', cuisine: R[x.key].cuisine, when: this.when(x.ts),
+        onOpen: () => this.openRecipe(x.key, x.ai), onMore: () => this.setState({ sheet: 'menu', sheetFor: x.uid, sortOpen: false }) })),
+      sheetOpen: !!s.sheet, isMenuSheet: s.sheet === 'menu', isDelSheet: s.sheet === 'delete', isCuisineSheet: s.sheet === 'cuisine', isExSheet: s.sheet === 'exclude', isProfileSheet: s.sheet === 'profile',
+      closeSheet: () => this.setState({ sheet: null }),
+      closeSheetSaved: () => { this.setState({ sheet: null }); this.showToast('설정을 저장했어요'); },
+      menuItem: sheetItem ? { name: nameOf(sheetItem), img: imgOf(sheetItem.key) } : { name: '', img: '' },
+      delItem: sheetItem ? { name: nameOf(sheetItem) } : { name: '' },
+      menuActions: sheetItem ? [
+        ['visibility', '레시피 보기', () => this.openRecipe(sheetItem.key, sheetItem.ai)],
+        ['edit', '조건 수정해서 다시 만들기', () => { const rr = R[sheetItem.key]; this.go('create', { ings: rr.ingr.slice(0, 4).map(x => x[0]), cuisine: rr.cuisine }); }],
+        ['content_copy', '복제하기', () => { this.setState(st => ({ sheet: null, saved: [{ ...sheetItem, uid: 'c' + Date.now(), ts: Date.now(), copy: true }, ...st.saved] })); this.showToast('레시피를 복제했어요'); }],
+        ['ios_share', '공유하기', () => { this.setState({ sheet: null }); this.showToast('레시피 링크를 복사했어요'); }],
+        ['delete', '삭제하기', () => this.setState({ sheet: 'delete' })],
+      ].map(([icon, label, onClick]) => ({ icon, label, onClick, fg: icon === 'delete' ? '#E5484D' : '#1F1A17' })) : [],
+      confirmDel: () => { this.setState(st => ({ sheet: null, saved: st.saved.filter(x => x.uid !== st.sheetFor) })); this.showToast('레시피를 삭제했어요'); },
+
+      // mypage
+      madeCount: s.made, notifBg: s.notif ? P : '#D9CFC6', notifLeft: s.notif ? '23px' : '3px',
+      toggleNotif: () => { this.setState({ notif: !s.notif }); this.showToast(s.notif ? '알림을 껐어요' : '알림을 켰어요'); },
+      defServ: s.defServ,
+      defDec: () => this.setState(st => ({ defServ: Math.max(1, st.defServ - 1), servings: Math.max(1, st.defServ - 1) })),
+      defInc: () => this.setState(st => ({ defServ: Math.min(8, st.defServ + 1), servings: Math.min(8, st.defServ + 1) })),
+      prefText: s.suCuisines.length ? s.suCuisines.slice(0, 2).join(' · ') + (s.suCuisines.length > 2 ? ` 외 ${s.suCuisines.length - 2}` : '') : '선택 안 함',
+      exText: s.excl.length ? s.excl.slice(0, 2).join(' · ') + (s.excl.length > 2 ? ` 외 ${s.excl.length - 2}` : '') : '없음',
+      openPrefCuisine: () => this.setState({ sheet: 'cuisine' }), openPrefEx: () => this.setState({ sheet: 'exclude' }),
+      openProfile: () => this.setState({ sheet: 'profile', nickEdit: nick }),
+      nickEdit: s.nickEdit, onNickEdit: e => this.setState({ nickEdit: e.target.value }),
+      saveProfile: () => { this.setState({ nick: s.nickEdit.trim() || s.nick, sheet: null }); this.showToast('프로필을 수정했어요'); },
+      supportRows: ['이용약관', '개인정보처리방침', '문의하기'].map(label => ({ label, onClick: () => this.showToast(label + ' 페이지로 이동해요') })),
+      logout: () => this.tab('login'),
+    };
+  }
+}
+</script>
+</body>
+</html>
